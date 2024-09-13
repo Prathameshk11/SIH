@@ -1,0 +1,85 @@
+/project-root
+│
+├── /backend                # Backend (Node.js/Express)
+│   ├── /config             # Configuration files (DB, environment variables)
+│   │   ├── db.js           # Database connection settings (PostgreSQL)
+│   │   ├── env.js          # Environment variable settings
+│   │   └── secrets.js      # Secrets management (if not using env variables)
+│   ├── /controllers        # Controllers (handling logic for routes)
+│   │   ├── authController.js   # User authentication and authorization logic
+│   │   ├── projectController.js # Handle project creation, updates, etc.
+│   │   └── resourceController.js # Handle resource sharing between departments
+│   ├── /models             # Database models (PostgreSQL schemas)
+│   │   ├── Department.js    # Department schema
+│   │   ├── Project.js       # Project schema
+│   │   └── Resource.js      # Resource schema
+│   ├── /routes             # API Routes
+│   │   ├── authRoutes.js    # Routes for authentication (login, signup)
+│   │   ├── projectRoutes.js # Routes for project management (CRUD operations)
+│   │   └── resourceRoutes.js # Routes for resource sharing
+│   ├── /middleware         # Custom middlewares (auth, logging, error handling)
+│   │   ├── authMiddleware.js   # Middleware to check user authorization
+│   │   └── errorHandler.js  # Global error handler
+│   ├── /services           # External services (geospatial tools, APIs)
+│   │   ├── gisService.js    # GIS-related functions (using PostGIS)
+│   │   └── notificationService.js  # Notification service (email, SMS)
+│   ├── /utils              # Utility functions (helpers)
+│   │   ├── jwtUtils.js      # JWT token utilities for authentication
+│   │   ├── dateUtils.js     # Date-related utilities (e.g., scheduling)
+│   └── server.js           # Express server entry point
+│
+├── /frontend                # Frontend (React.js)
+│   ├── /public              # Public assets (static files)
+│   │   └── index.html       # Main HTML file
+│   ├── /src                 # Source code
+│   │   ├── /components      # Reusable components
+│   │   │   ├── Navbar.js    # Navigation bar
+│   │   │   ├── Dashboard.js # Dashboard for department/project overview
+│   │   │   ├── MapView.js   # Map component (Leaflet/Mapbox)
+│   │   │   ├── TaskScheduler.js # Task scheduling component
+│   │   ├── /pages           # Application pages (views)
+│   │   │   ├── AdminDashboard.js    # Admin dashboard page
+│   │   │   ├── DepartmentalAdminDashboard.js # Departmental admin dashboard
+│   │   │   ├── TeamMemberDashboard.js # Team member dashboard
+│   │   │   ├── LandingPage.js # Landing page
+│   │   │   ├── Login.js     # Login page
+│   │   │   ├── ProjectList.js # List of projects (CRUD operations)
+│   │   │   ├── ResourceSharing.js # Resource sharing between departments
+│   │   │   └── Forum.js     # Discussion forum page
+│   │   ├── /services        # Frontend API services (calling backend)
+│   │   │   ├── authService.js  # Authentication (login, signup)
+│   │   │   ├── projectService.js # CRUD operations for projects
+│   │   │   ├── resourceService.js # Resource management calls
+│   │   ├── /styles          # Styles (CSS or Sass)
+│   │   │   ├── LandingPage.css  # Styles for the landing page
+│   │   │   ├── Login.css     # Styles for the login page
+│   │   │   ├── Navbar.css    # Styles for the navigation bar
+│   │   │   └── App.css       # Global styles
+│   │   ├── App.js           # Main React app component
+│   │   └── index.js         # Entry point for React
+│
+├── /database                # Database scripts
+│   ├── init.sql             # Database initialization (schema, tables)
+│   └── seed.sql             # Sample data (for development)
+│
+├── /tests                   # Test files (unit, integration, and end-to-end)
+│   ├── /backend             # Backend test files
+│   │   ├── auth.test.js     # Authentication tests
+│   │   └── project.test.js  # Project routes and controller tests
+│   ├── /frontend            # Frontend test files
+│   │   ├── dashboard.test.js # Dashboard component tests
+│   └── integration.test.js  # End-to-end integration tests
+│
+├── /docs                    # Documentation
+│   ├── API.md               # API documentation (routes, request/response)
+│   └── README.md            # Project overview and setup guide
+│
+├── /scripts                 # Automation scripts (build, deployment)
+│   ├── build.sh             # Script to build the project
+│   └── deploy.sh            # Deployment script for cloud services
+│
+├── .env                     # Environment variables file (development)
+├── .gitignore               # Ignore files for Git
+├── docker-compose.yml       # Docker Compose file for containerized setup
+├── Dockerfile               # Dockerfile for building the application
+└── package.json             # NPM dependencies for both backend and frontend
